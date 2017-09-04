@@ -1,0 +1,26 @@
+{ margin: 0; padding: 0; }
+    body{ 
+        background: url('https://s14-eu5.ixquick.com/cgi-bin/serveimage?url=https:%2F%2Fs-media-cache-ak0.pinimg.com%2Foriginals%2F68%2F9e%2F13%2F689e13b5a9e29749f6ae2cce530f7f3e.gif&sp=ca999b4b3e5c6097475b6aa8e1d1f8e9') center center fixed; 
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        background-size: cover;
+    }
+
+.box{
+	display: inline-block;
+	float: center;
+	margin: auto;
+    background-color: blue !important;
+    width: 300px;
+    border: 10px;
+    border-color: purple;
+    padding: 10px;
+    margin: 10px
+}
+p{
+	color: azure;
+    font-size: 15px;
+    font-family:sans-serif 
+    }
+.fluid-width-video-wrapper{width:100%;position:relative;padding:0;}
+.fluid-width-video-wrapper iframe,.fluid-width-video-wrapper object,.fluid-width-video-wrapper embed {position:absolute;top:0;left:0;width:100%;height:100%;}
