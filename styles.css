@@ -1,42 +1,19 @@
-
 * {
 box-sizing: border-box;
+color: white;
+font-family: 'Quicksand', sans-serif;
 }
 
 body {
 margin: 0;
+background:rgb(35, 35, 35);
 }
-
-.navbar {
-overflow: hidden;
-background-color: #333;
-font-family: Arial, Helvetica, sans-serif;
-}
-
-.navbar a {
-float: left;
-font-size: 16px;
-color: white;
+ a {
+color: tomato;
 text-align: center;
-padding: 14px 16px;
 text-decoration: none;
 }
 
-.dropdown {
-float: left;
-overflow: hidden;
-}
-
-.dropdown .dropbtn {
-font-size: 16px;  
-border: none;
-outline: none;
-color: white;
-padding: 14px 16px;
-background-color: inherit;
-font: inherit;
-margin: 0;
-}
 
 .navbar a:hover, .dropdown:hover .dropbtn {
 background-color: red;
