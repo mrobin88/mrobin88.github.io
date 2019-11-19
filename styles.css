@@ -2,6 +2,7 @@
 box-sizing: border-box;
 color: white;
 font-family: 'Quicksand', sans-serif;
+word-break: break-word;
 }
 
 body {
