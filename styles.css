@@ -80,5 +80,7 @@ height: auto;
 }
 
 .project-link{
-    margin: 10%;
+    margin-left: 5%;
+    margin-right: 5%;
+    word-wrap: none;
 }
