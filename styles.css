@@ -1,3 +1,5 @@
+
+
 * {
     box-sizing: border-box;
     color: white;
@@ -46,7 +48,7 @@
     .column {
     float: left;
     width: 33.33%;
-    padding: 10
+    padding: 10;
     0px;
     background-color: #ccc;
     height: 250px;
@@ -55,7 +57,7 @@
     list-style-type: none;
     }
     .column a {
-    float: none;
+oat: none;
     color: black;
     padding: 16px;
     text-decoration: none;
