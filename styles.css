@@ -8,10 +8,10 @@
     
     body {
     margin: 0;
-    background:#8D91E3;
+    background: #4C5775
     }
      a {
-    color: #E39A98;
+    color: #808287;
     text-align: center;
     text-decoration: none;
     }
@@ -89,7 +89,7 @@
     }
     
     .project-link{
-        background-color: #F8E38D;
+        background-color: #E9ECF5;
         background-position-x: 10vh;
         width: fit-content;
         padding: 10px;
