@@ -17,7 +17,6 @@
             position: relative;
             font-size: x-large;
             align-self: auto;
-            padding-top: 8%;
             padding-left: 8%;
             padding-bottom: 1%;
         }
@@ -33,6 +32,7 @@
         #bio {
             color: black;
             border: solid black 5px;
+            max-width: 100%;
             height: 100%;
             left: 0;
             position: relative;
@@ -48,6 +48,8 @@
         
         .projects-container {
             width: max-content;
+            max-width: 100%;
+            margin: 10px;
         }
         
         .column {
@@ -65,11 +67,14 @@
             object-fit: contain
         }
         
+        li {
+            padding: .5em;
+        }
+        
         a {
             float: none;
             color: black;
             text-decoration: none;
-            display: block;
             text-align: left;
         }
         
