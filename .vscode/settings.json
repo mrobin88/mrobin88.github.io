@@ -1,0 +1,5 @@
+{
+    "telemetry.enableCrashReporter": false,
+    "keyboard.touchbar.enabled": false,
+    "telemetry.enableTelemetry": false
+}
