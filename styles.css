@@ -235,25 +235,13 @@
         
         .adsense-container {
             margin-top: 20px;
-        }
-        
-        .adsense-placeholder {
-            padding: 60px 20px;
-            background: rgba(0, 0, 0, 0.2);
-            border: 1px solid #0f0;
+            min-height: 100px;
             text-align: center;
-            color: #0f0;
         }
         
-        .adsense-placeholder p {
-            margin: 0;
-            font-size: 1.1em;
-            margin-bottom: 5px;
-        }
-        
-        .adsense-placeholder small {
-            color: #0a0;
-            font-size: 0.8em;
+        .adsense-container ins {
+            display: block;
+            margin: 0 auto;
         }
         
         /* Spark Glow Effect at Bottom */
