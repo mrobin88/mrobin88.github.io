@@ -126,10 +126,194 @@ document.addEventListener('DOMContentLoaded', function() {
         // Animate on load
         draw();
         
-        // Subtle animation
+            // Subtle animation
         setInterval(() => {
             hue = (hue + 0.5) % 360;
             draw();
         }, 100);
     }
+    
+    // Typing Effect
+    const typingText = document.getElementById('typingText');
+    if (typingText) {
+        const text = "Welcome to Matt's Site";
+        let i = 0;
+        typingText.textContent = '';
+        
+        function typeWriter() {
+            if (i < text.length) {
+                typingText.textContent += text.charAt(i);
+                i++;
+                setTimeout(typeWriter, 100);
+            } else {
+                // Start blinking after typing
+                typingText.classList.add('blink-text');
+            }
+        }
+        
+        setTimeout(typeWriter, 500);
+    }
+    
+    // Particle System
+    const particleCanvas = document.getElementById('particleCanvas');
+    if (particleCanvas) {
+        const ctx = particleCanvas.getContext('2d');
+        particleCanvas.width = window.innerWidth;
+        particleCanvas.height = window.innerHeight;
+        
+        const particles = [];
+        const particleCount = 50;
+        
+        class Particle {
+            constructor() {
+                this.x = Math.random() * particleCanvas.width;
+                this.y = Math.random() * particleCanvas.height;
+                this.vx = (Math.random() - 0.5) * 0.5;
+                this.vy = (Math.random() - 0.5) * 0.5;
+                this.size = Math.random() * 2 + 1;
+            }
+            
+            update() {
+                this.x += this.vx;
+                this.y += this.vy;
+                
+                if (this.x < 0 || this.x > particleCanvas.width) this.vx *= -1;
+                if (this.y < 0 || this.y > particleCanvas.height) this.vy *= -1;
+            }
+            
+            draw() {
+                ctx.fillStyle = 'rgba(0, 255, 0, 0.3)';
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fill();
+            }
+        }
+        
+        // Create particles
+        for (let i = 0; i < particleCount; i++) {
+            particles.push(new Particle());
+        }
+        
+        // Draw connections
+        function drawConnections() {
+            for (let i = 0; i < particles.length; i++) {
+                for (let j = i + 1; j < particles.length; j++) {
+                    const dx = particles[i].x - particles[j].x;
+                    const dy = particles[i].y - particles[j].y;
+                    const distance = Math.sqrt(dx * dx + dy * dy);
+                    
+                    if (distance < 150) {
+                        ctx.strokeStyle = `rgba(0, 255, 0, ${0.2 * (1 - distance / 150)})`;
+                        ctx.lineWidth = 0.5;
+                        ctx.beginPath();
+                        ctx.moveTo(particles[i].x, particles[i].y);
+                        ctx.lineTo(particles[j].x, particles[j].y);
+                        ctx.stroke();
+                    }
+                }
+            }
+        }
+        
+        function animate() {
+            ctx.clearRect(0, 0, particleCanvas.width, particleCanvas.height);
+            
+            particles.forEach(particle => {
+                particle.update();
+                particle.draw();
+            });
+            
+            drawConnections();
+            requestAnimationFrame(animate);
+        }
+        
+        animate();
+        
+        window.addEventListener('resize', () => {
+            particleCanvas.width = window.innerWidth;
+            particleCanvas.height = window.innerHeight;
+        });
+    }
+    
+    // Cursor Trail Effect
+    const cursorTrail = document.getElementById('cursorTrail');
+    if (cursorTrail) {
+        let trail = [];
+        const trailLength = 20;
+        
+        document.addEventListener('mousemove', (e) => {
+            trail.push({ x: e.clientX, y: e.clientY, time: Date.now() });
+            
+            if (trail.length > trailLength) {
+                trail.shift();
+            }
+            
+            updateTrail();
+        });
+        
+        function updateTrail() {
+            cursorTrail.innerHTML = '';
+            trail.forEach((point, index) => {
+                const dot = document.createElement('div');
+                const size = (index / trailLength) * 10 + 2;
+                const opacity = index / trailLength;
+                dot.style.cssText = `
+                    position: fixed;
+                    left: ${point.x}px;
+                    top: ${point.y}px;
+                    width: ${size}px;
+                    height: ${size}px;
+                    background: #0f0;
+                    border-radius: 50%;
+                    pointer-events: none;
+                    opacity: ${opacity};
+                    transform: translate(-50%, -50%);
+                    z-index: 9999;
+                    transition: all 0.1s;
+                `;
+                cursorTrail.appendChild(dot);
+            });
+        }
+        
+        setInterval(() => {
+            trail = trail.filter(point => Date.now() - point.time < 200);
+            updateTrail();
+        }, 50);
+    }
+    
+    // Web API Info
+    function updateAPIInfo() {
+        const screenInfo = document.getElementById('screenInfo');
+        const browserInfo = document.getElementById('browserInfo');
+        const onlineStatus = document.getElementById('onlineStatus');
+        const currentTime = document.getElementById('currentTime');
+        
+        if (screenInfo) {
+            screenInfo.textContent = `${window.screen.width}x${window.screen.height}`;
+        }
+        
+        if (browserInfo) {
+            const ua = navigator.userAgent;
+            let browser = 'Unknown';
+            if (ua.includes('Chrome')) browser = 'Chrome';
+            else if (ua.includes('Firefox')) browser = 'Firefox';
+            else if (ua.includes('Safari')) browser = 'Safari';
+            else if (ua.includes('Edge')) browser = 'Edge';
+            browserInfo.textContent = browser;
+        }
+        
+        if (onlineStatus) {
+            onlineStatus.textContent = navigator.onLine ? 'Yes' : 'No';
+            onlineStatus.style.color = navigator.onLine ? '#0f0' : '#f00';
+        }
+        
+        if (currentTime) {
+            const updateTime = () => {
+                currentTime.textContent = new Date().toLocaleTimeString();
+            };
+            updateTime();
+            setInterval(updateTime, 1000);
+        }
+    }
+    
+    updateAPIInfo();
 });

@@ -15,6 +15,12 @@
 </head>
 
 <body>
+    <!-- Particle Background Canvas -->
+    <canvas id="particleCanvas" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; pointer-events: none;"></canvas>
+    
+    <!-- Cursor Trail -->
+    <div id="cursorTrail"></div>
+    
     <!-- Retro Navigation with Dropdowns -->
     <nav class="retro-nav">
         <div class="nav-item">
@@ -42,7 +48,18 @@
 
     <!-- Simple Welcome Text -->
     <div class="blink-container">
-        <h1 class="blink-text">Welcome to Matt's Site</h1>
+        <h1 class="blink-text" id="typingText"></h1>
+    </div>
+    
+    <!-- Web API Demo Section -->
+    <div class="api-demo-container">
+        <h3>Browser Info</h3>
+        <div class="api-info">
+            <p>Screen: <span id="screenInfo">-</span></p>
+            <p>Browser: <span id="browserInfo">-</span></p>
+            <p>Online: <span id="onlineStatus">-</span></p>
+            <p>Time: <span id="currentTime">-</span></p>
+        </div>
     </div>
 
     <!-- Main Bio Section -->
