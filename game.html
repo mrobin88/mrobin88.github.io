@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Game - Matt's Site</title>
+    <meta charset="UTF-8">
+    <meta name="author" content="Matthew Robin">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript" async="" src="/scripts.js"></script>
+    <link type="text/css" rel="stylesheet" href="/styles.css">
+    <style>
+        .game-container {
+            max-width: 600px;
+            margin: 40px auto;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .game-title {
+            font-size: 2em;
+            color: #333;
+            margin-bottom: 30px;
+        }
+        
+        .game-area {
+            background: #f0f0f0;
+            border: 2px solid #333;
+            border-radius: 10px;
+            padding: 30px;
+            margin: 20px 0;
+            min-height: 300px;
+            position: relative;
+            touch-action: manipulation;
+        }
+        
+        .target {
+            position: absolute;
+            width: 60px;
+            height: 60px;
+            background: #ff6b6b;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: transform 0.1s;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            user-select: none;
+        }
+        
+        .target:hover {
+            transform: scale(1.1);
+        }
+        
+        .target:active {
+            transform: scale(0.95);
+        }
+        
+        .game-stats {
+            display: flex;
+            justify-content: space-around;
+            margin: 20px 0;
+            padding: 15px;
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        
+        .stat {
+            text-align: center;
+        }
+        
+        .stat-label {
+            font-size: 0.9em;
+            color: #666;
+            margin-bottom: 5px;
+        }
+        
+        .stat-value {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #333;
+        }
+        
+        .game-button {
+            padding: 12px 30px;
+            font-size: 1em;
+            background: #333;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 10px;
+            transition: background 0.3s;
+        }
+        
+        .game-button:hover {
+            background: #555;
+        }
+        
+        .game-button:active {
+            background: #111;
+        }
+        
+        .game-instructions {
+            margin: 20px 0;
+            padding: 15px;
+            background: #e8f4f8;
+            border-left: 4px solid #333;
+            text-align: left;
+            color: #555;
+        }
+        
+        .high-score {
+            color: #ff6b6b;
+            font-weight: bold;
+        }
+        
+        @media (max-width: 600px) {
+            .game-area {
+                min-height: 400px;
+            }
+            
+            .target {
+                width: 50px;
+                height: 50px;
+            }
+        }
+    </style>
+</head>
+
+<body class="blog-page">
+    <nav class="retro-nav">
+        <div class="nav-item">
+            <a href="index.html" class="nav-link">Home</a>
+        </div>
+        <div class="nav-item">
+            <a href="blog.html" class="nav-link">Blog</a>
+        </div>
+        <div class="nav-item">
+            <a href="game.html" class="nav-link">Game</a>
+        </div>
+        <div class="nav-item">
+            <a href="#" class="nav-link">Links</a>
+            <div class="dropdown">
+                <a href="https://www.linkedin.com/in/matthew-robin-007/" target="_blank">LinkedIn</a>
+                <a href="https://github.com/mrobin88" target="_blank">GitHub</a>
+                <a href="#" onclick="Copy(); return false;">Email</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="game-container">
+        <h1 class="game-title">Click Game</h1>
+        
+        <div class="game-instructions">
+            <p><strong>How to play:</strong> Click the red circles as they appear. You have 30 seconds. How many can you hit?</p>
+        </div>
+        
+        <div class="game-stats">
+            <div class="stat">
+                <div class="stat-label">Score</div>
+                <div class="stat-value" id="score">0</div>
+            </div>
+            <div class="stat">
+                <div class="stat-label">Time</div>
+                <div class="stat-value" id="timer">30</div>
+            </div>
+            <div class="stat">
+                <div class="stat-label">High Score</div>
+                <div class="stat-value high-score" id="highScore">0</div>
+            </div>
+        </div>
+        
+        <div class="game-area" id="gameArea">
+            <p style="color: #999; margin-top: 100px;">Click "Start" to begin</p>
+        </div>
+        
+        <button class="game-button" id="startBtn" onclick="startGame()">Start</button>
+        <button class="game-button" id="resetBtn" onclick="resetGame()" style="display: none;">Reset</button>
+    </div>
+
+    <script>
+        let score = 0;
+        let timeLeft = 30;
+        let gameInterval = null;
+        let targetInterval = null;
+        let isPlaying = false;
+        let highScore = localStorage.getItem('clickGameHighScore') || 0;
+        
+        document.getElementById('highScore').textContent = highScore;
+        
+        function startGame() {
+            if (isPlaying) return;
+            
+            isPlaying = true;
+            score = 0;
+            timeLeft = 30;
+            
+            document.getElementById('score').textContent = score;
+            document.getElementById('timer').textContent = timeLeft;
+            document.getElementById('startBtn').style.display = 'none';
+            document.getElementById('resetBtn').style.display = 'inline-block';
+            document.getElementById('gameArea').innerHTML = '';
+            
+            // Timer countdown
+            gameInterval = setInterval(() => {
+                timeLeft--;
+                document.getElementById('timer').textContent = timeLeft;
+                
+                if (timeLeft <= 0) {
+                    endGame();
+                }
+            }, 1000);
+            
+            // Spawn targets
+            spawnTarget();
+            targetInterval = setInterval(spawnTarget, 800);
+        }
+        
+        function spawnTarget() {
+            if (!isPlaying) return;
+            
+            const gameArea = document.getElementById('gameArea');
+            const target = document.createElement('div');
+            target.className = 'target';
+            
+            const maxX = gameArea.offsetWidth - 60;
+            const maxY = gameArea.offsetHeight - 60;
+            
+            target.style.left = Math.random() * maxX + 'px';
+            target.style.top = Math.random() * maxY + 'px';
+            
+            target.onclick = function() {
+                score++;
+                document.getElementById('score').textContent = score;
+                this.remove();
+            };
+            
+            // Remove target after 2 seconds if not clicked
+            setTimeout(() => {
+                if (target.parentNode) {
+                    target.remove();
+                }
+            }, 2000);
+            
+            gameArea.appendChild(target);
+        }
+        
+        function endGame() {
+            isPlaying = false;
+            clearInterval(gameInterval);
+            clearInterval(targetInterval);
+            
+            // Clear all targets
+            document.getElementById('gameArea').innerHTML = 
+                `<p style="color: #333; margin-top: 100px; font-size: 1.2em;">
+                    Game Over!<br>
+                    Final Score: <strong>${score}</strong>
+                </p>`;
+            
+            // Update high score
+            if (score > highScore) {
+                highScore = score;
+                localStorage.setItem('clickGameHighScore', highScore);
+                document.getElementById('highScore').textContent = highScore;
+                document.getElementById('gameArea').innerHTML += 
+                    '<p style="color: #ff6b6b; margin-top: 20px;">New High Score! 🎉</p>';
+            }
+            
+            document.getElementById('startBtn').style.display = 'inline-block';
+        }
+        
+        function resetGame() {
+            endGame();
+            document.getElementById('gameArea').innerHTML = 
+                '<p style="color: #999; margin-top: 100px;">Click "Start" to begin</p>';
+            document.getElementById('resetBtn').style.display = 'none';
+        }
+    </script>
+
+    <!-- Spark Glow Effect at Bottom -->
+    <div class="fire-container">
+        <div class="fire">
+            <div class="spark spark-1"></div>
+            <div class="spark spark-2"></div>
+            <div class="spark spark-3"></div>
+            <div class="spark spark-4"></div>
+        </div>
+    </div>
+</body>
+
+</html>
+

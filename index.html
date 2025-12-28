@@ -10,43 +10,90 @@
 
     <script type="text/javascript" async="" src="/scripts.js"></script>
     <link type="text/css" rel="stylesheet" href="/styles.css">
-    <link type="text/css" href="https://fonts.googleapis.com/css?family=Quicksand&display=swap" rel="stylesheet">
 </head>
 
 <body>
+    <!-- Retro Navigation with Dropdowns -->
+    <nav class="retro-nav">
+        <div class="nav-item">
+            <a href="#" class="nav-link">About</a>
+            <div class="dropdown">
+                <a href="#bio">Bio</a>
+                <a href="#contact-section">Contact</a>
+            </div>
+        </div>
+        <div class="nav-item">
+            <a href="blog.html" class="nav-link">Blog</a>
+        </div>
+        <div class="nav-item">
+            <a href="game.html" class="nav-link">Game</a>
+        </div>
+        <div class="nav-item">
+            <a href="#" class="nav-link">Links</a>
+            <div class="dropdown">
+                <a href="https://www.linkedin.com/in/matthew-robin-007/" target="_blank">LinkedIn</a>
+                <a href="https://github.com/mrobin88" target="_blank">GitHub</a>
+                <a href="#" onclick="Copy(); return false;">Email</a>
+            </div>
+        </div>
+    </nav>
 
-    <div id='bio'>
-        <div id='hi'>I do not have much to say but I am happy to answer questions </div><br>
-        <a href="https://mtg-pile.herokuapp.com" target="_blank">MTG card search app.</a> 
+    <!-- Simple Welcome Text -->
+    <div class="blink-container">
+        <h1 class="blink-text">Welcome to Matt's Site</h1>
+    </div>
+
+    <!-- Main Bio Section -->
+    <div id='bio' class="bio-section">
+        <div id='hi' class="retro-text">Software engineer who builds things. Sometimes they work, sometimes they don't. Currently exploring what's next.</div>
         <br><br>
-        <a id='linkdin' href="https://www.linkedin.com/in/matthew-robin-007/" target="_blank">Linkedin</a><br>
-        <a id='email' href="#" value="ratthewrobin@gmail.com" onclick="Copy()">E-Mail</a>
+        <div id="contact-section">
+            <a id='linkdin' href="https://www.linkedin.com/in/matthew-robin-007/" target="_blank" class="retro-link">Linkedin</a><br>
+            <a id='email' href="#" value="ratthewrobin@gmail.com" onclick="Copy(); return false;" class="retro-link">E-Mail</a>
+        </div>
+        
+        <!-- Interactive Feature -->
+        <div class="interactive-section">
+            <p style="color: #0f0; margin-top: 20px; font-size: 0.9em;">Click anywhere on this box to change the color</p>
+            <canvas id="interactiveCanvas" width="200" height="100" style="width: 100%; max-width: 200px; height: 100px; border: 1px solid #0f0; cursor: pointer; margin-top: 10px;"></canvas>
+        </div>
     </div>
 
+    <!-- Bitcoin Donation Section -->
+    <div class="donation-container">
+        <h3>Support</h3>
+        <div class="bitcoin-donation">
+            <p>Bitcoin: <span id="btc-address">bc1qxy2kgdygjrsqtzq2n0yrf2493p83kkfjhx0wlh</span></p>
+            <button onclick="copyBTC()" class="copy-btn">Copy Address</button>
+            <div class="qr-placeholder">QR Code</div>
+        </div>
+        
+        <!-- Google AdSense Placeholder -->
+        <div class="adsense-container">
+            <div class="adsense-placeholder">
+                <p>Ad Space</p>
+                <small>Google AdSense</small>
+            </div>
+        </div>
     </div>
+
+    <!-- Pixelated Decorative Elements -->
+    <div class="pixel-art-container">
+        <div class="pixel-star pixel-star-1">★</div>
+        <div class="pixel-star pixel-star-2">★</div>
+        <div class="pixel-star pixel-star-3">★</div>
     </div>
-    <div class="projects-container">
-        <ul>        
-            <li>
-                <a href="https://experiencesapp.herokuapp.com/experiences/" target="_blank">Experiences</a> |
-                <a href="https://github.com/mrobin88/experiences-app" target="_blank"> Github </a>
-            </li>
-            <li>
-                <a href="http://zen-shockley-08671c.netlify.com/" target="_blank">whack-a-mole</a> |
-                <a href="https://github.com/mrobin88/wack-a-mole" target="_blank"> Github </a>
-            </li>
-            <li>
-                <a href="https://gosk9.herokuapp.com/" target="_blank">Post Events</a> |
-                <a href="https://github.com/mrobin88/goneGoSk8" target="_blank"> Github </a>
-            </li>
-            <li>
-                <a href="https://mtg-pile.herokuapp.com" target="_blank">Search MTG cards</a> |
-                <a href="https://github.com/mrobin88/mtg-pile" target="_blank"> Github </a>
-            </li>
-        </ul>
+
+    <!-- Spark Glow Effect at Bottom -->
+    <div class="fire-container">
+        <div class="fire">
+            <div class="spark spark-1"></div>
+            <div class="spark spark-2"></div>
+            <div class="spark spark-3"></div>
+            <div class="spark spark-4"></div>
+        </div>
     </div>
 </body>
 
-
-
 </html>
+
