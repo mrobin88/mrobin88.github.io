@@ -1,0 +1,202 @@
+{
+  "owner": {
+    "name": "Matthew Robin",
+    "role": "Full-Stack Web Developer",
+    "location": "San Francisco, CA",
+    "email": "MatthewRobin@gmail.com",
+    "github": "https://github.com/mrobin88",
+    "summary": "Full-stack web developer building practical products across frontend, backend, APIs, and data systems. Experienced shipping React, Django, and Node.js applications with authentication, real-time features, and cloud deployment."
+  },
+  "technicalHighlights": [
+    "React",
+    "TypeScript",
+    "Django REST Framework",
+    "Node.js + Express",
+    "PostgreSQL + Supabase",
+    "MongoDB",
+    "JWT + OAuth",
+    "WebSockets",
+    "Docker",
+    "Azure + Vercel"
+  ],
+  "projects": [
+    {
+      "slug": "mhh-client",
+      "name": "MHH Client Services Management System",
+      "status": "Live",
+      "stabilityNote": "Live system is available. If environment services are down, use the source code and architecture notes below.",
+      "stack": [
+        "Vue.js",
+        "TypeScript",
+        "Django",
+        "Django REST Framework",
+        "PostgreSQL",
+        "Azure Blob Storage",
+        "Azure Static Web Apps",
+        "Azure App Service"
+      ],
+      "problem": "Service organizations need reliable intake, case tracking, and follow-up workflows for staff and clients.",
+      "build": [
+        "Built a production-ready client intake and case management platform with separate frontend, API, and admin layers.",
+        "Implemented case notes, CSV export, automated follow-up reminders, and secure document/resume uploads.",
+        "Integrated Azure deployment pipeline with managed PostgreSQL and blob storage."
+      ],
+      "impact": [
+        "Reduced manual intake and case tracking overhead through centralized workflows.",
+        "Improved staff visibility into follow-ups with timestamped notes and reminders.",
+        "Delivered a maintainable cloud deployment pattern suitable for ongoing org use."
+      ],
+      "links": {
+        "live": "https://blue-glacier-0c5f06410.3.azurestaticapps.net/",
+        "repo": "https://github.com/mrobin88/mhhClient",
+        "api": "https://mhh-client-backend-cuambzgeg3dfbphd.centralus-01.azurewebsites.net/api/"
+      }
+    },
+    {
+      "slug": "checkin-app",
+      "name": "CheckIn Social App",
+      "status": "Live",
+      "stabilityNote": "Demo may be limited by third-party auth or API quotas at times. Source remains fully available.",
+      "stack": [
+        "React",
+        "TypeScript",
+        "Vite",
+        "Supabase",
+        "PostgreSQL",
+        "OAuth",
+        "PWA"
+      ],
+      "problem": "Users need a lightweight way to discover places, check in with friends, and track social activity around venues.",
+      "build": [
+        "Built a React + TypeScript social check-in experience with authentication and profile management.",
+        "Integrated Supabase for auth, relational data, and real-time social interactions.",
+        "Shipped installable PWA behavior and responsive UI for mobile-first usage."
+      ],
+      "impact": [
+        "Created a full social flow from discovery to posting, profile activity, and community interactions.",
+        "Demonstrated production deployment and auth-backed UX in a modern frontend stack.",
+        "Provided a foundation for location-based product iteration."
+      ],
+      "links": {
+        "live": "https://checkin-app-psi.vercel.app",
+        "repo": "https://github.com/mrobin88/checkin-app"
+      }
+    },
+    {
+      "slug": "mtg-pile",
+      "name": "MTG Pile",
+      "status": "Source Available",
+      "stabilityNote": "Live environment may not always be up; review source and architecture for complete implementation details.",
+      "stack": [
+        "React",
+        "Node.js",
+        "Express",
+        "MongoDB",
+        "JWT",
+        "Scryfall API"
+      ],
+      "problem": "Competitive MTG players need faster ways to search cards, compare alternatives, and evaluate deck decisions.",
+      "build": [
+        "Built a full-stack card platform with React frontend and Express API backend.",
+        "Implemented JWT authentication, card organization workflows, and rate-limited API integrations.",
+        "Connected external card data sources and monetization-ready affiliate link flow."
+      ],
+      "impact": [
+        "Centralized search, analysis, and card decision workflows in one product.",
+        "Demonstrated third-party API integration and secure user auth patterns.",
+        "Showcased business-aware engineering through affiliate and growth-oriented architecture."
+      ],
+      "links": {
+        "repo": "https://github.com/mrobin88/mtg-pile"
+      }
+    },
+    {
+      "slug": "walking-buddy-app",
+      "name": "Walking Buddy App",
+      "status": "Source Available",
+      "stabilityNote": "Primary portfolio value is in backend architecture and real-time features. Source is the best review path.",
+      "stack": [
+        "Django",
+        "Django REST Framework",
+        "PostgreSQL",
+        "WebSockets",
+        "JWT",
+        "Docker",
+        "Celery"
+      ],
+      "problem": "People looking for local walking partners need trust, communication, and logistics in one platform.",
+      "build": [
+        "Designed a Django REST backend with social graph, profile data, and moderated ratings.",
+        "Implemented WebSocket-powered real-time chat and coordination features.",
+        "Added JWT auth, Docker-based development workflows, and asynchronous task support."
+      ],
+      "impact": [
+        "Enabled social discovery, messaging, and activity coordination in a single system.",
+        "Demonstrated full-stack readiness for real-time and safety-moderated community apps.",
+        "Established scalable backend patterns for future mobile clients."
+      ],
+      "links": {
+        "repo": "https://github.com/mrobin88/walking-buddy-app"
+      }
+    },
+    {
+      "slug": "onusone-p2p",
+      "name": "OnusOne P2P",
+      "status": "Source Available",
+      "stabilityNote": "Public demo is currently unavailable. Source and architecture are available for full review.",
+      "stack": [
+        "Next.js",
+        "TypeScript",
+        "Solana Web3.js",
+        "Supabase",
+        "Django",
+        "WebSockets",
+        "IPFS"
+      ],
+      "problem": "Decentralized communication tools need trustless identity, durable messaging, and transparent incentives.",
+      "build": [
+        "Built a web3 messaging platform with wallet authentication and custom token mechanics.",
+        "Implemented multi-service architecture across frontend, node networking, and compliance backend layers.",
+        "Integrated distributed storage and real-time communication channels."
+      ],
+      "impact": [
+        "Demonstrated ability to deliver complex multi-stack systems with novel product logic.",
+        "Showcased architecture design beyond a standard CRUD application.",
+        "Proved practical integration of web2 and web3 development models."
+      ],
+      "links": {
+        "repo": "https://github.com/mrobin88/onusone-p2p"
+      }
+    }
+  ],
+  "experience": [
+    {
+      "company": "Mission Language & Vocational School",
+      "title": "IT Support & Web Developer (Contract)",
+      "period": "Jan 2026 - Present",
+      "highlights": [
+        "Diagnosed network issues including subnet conflicts and passthrough configuration.",
+        "Provided endpoint deployment and technical support across staff and partner organizations.",
+        "Building internal client portal and database systems."
+      ]
+    },
+    {
+      "company": "Google",
+      "title": "Contract Software Engineer",
+      "period": "Nov 2024 - Apr 2025",
+      "highlights": [
+        "Built and maintained Angular/TypeScript UI components for internal resource management tools.",
+        "Wrote SQL queries for reporting and operational tracking."
+      ]
+    },
+    {
+      "company": "YouTube",
+      "title": "Software Developer",
+      "period": "Nov 2021 - Jan 2023",
+      "highlights": [
+        "Built Angular/TypeScript frontend components for internal resource workflows.",
+        "Developed Python automation scripts to reduce manual deployment steps."
+      ]
+    }
+  ]
+}

@@ -1,181 +1,96 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Matthew Robin portfolio showcasing full-stack web development projects and professional experience."
+    />
+    <title>Matthew Robin | Full-Stack Web Developer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Source+Sans+3:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container nav-wrap">
+        <a href="#top" class="logo">Matthew Robin</a>
+        <nav class="site-nav" aria-label="Primary">
+          <a href="#about">About</a>
+          <a href="#projects">Projects</a>
+          <a href="#experience">Experience</a>
+          <a href="#contact">Contact</a>
+        </nav>
+      </div>
+    </header>
 
-<head>
-    <title>Matthew Robin - Software Engineer | Custom CRM Developer | Web Developer</title>
-    <meta name="description" content="Software engineer specializing in custom CRM development, web applications, and full-stack solutions. Experience at Google, YouTube, and building custom database systems like Client MHH Database.">
-    <meta name="keywords" content="software engineer, custom CRM, web developer, database developer, Matthew Robin, Python developer, JavaScript developer, full-stack developer, custom software">
-    <meta name="author" content="Matthew Robin">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://mrobin88.github.io/">
-    <meta property="og:title" content="Matthew Robin - Software Engineer & Custom CRM Developer">
-    <meta property="og:description" content="Software engineer specializing in custom CRM development and web applications. Experience at Google, YouTube, and custom database systems.">
-    
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://mrobin88.github.io/">
-    <meta property="twitter:title" content="Matthew Robin - Software Engineer & Custom CRM Developer">
-    <meta property="twitter:description" content="Software engineer specializing in custom CRM development and web applications.">
-    
-    <!-- Canonical URL -->
-    <link rel="canonical" href="https://mrobin88.github.io/">
-    
-    <meta charset="UTF-8">
+    <main id="top">
+      <section class="hero section reveal">
+        <div class="container hero-layout">
+          <p class="eyebrow">Web Developer Portfolio</p>
+          <h1 id="hero-name">Matthew Robin</h1>
+          <p id="hero-role" class="hero-role">Full-Stack Web Developer</p>
+          <p id="hero-summary" class="hero-summary">
+            Building practical, full-stack web applications with modern frontend,
+            backend APIs, and production deployment workflows.
+          </p>
+          <div id="highlights" class="highlight-tags" aria-label="Technical highlights"></div>
+          <div class="hero-cta">
+            <a id="hero-github" class="btn btn-primary" href="#" target="_blank" rel="noreferrer">GitHub</a>
+            <a id="hero-email" class="btn btn-secondary" href="#">Email</a>
+          </div>
+        </div>
+      </section>
 
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3022139486282881"
-     crossorigin="anonymous"></script>
-    <script type="text/javascript" async="" src="/scripts.js"></script>
-    <link type="text/css" rel="stylesheet" href="/styles.css">
-    
-    <!-- Structured Data (JSON-LD) -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Person",
-      "name": "Matthew Robin",
-      "jobTitle": "Software Engineer",
-      "url": "https://mrobin88.github.io",
-      "sameAs": [
-        "https://www.linkedin.com/in/matthew-robin/",
-        "https://github.com/mrobin88"
-      ],
-      "email": "ratthewrobin@gmail.com",
-      "telephone": "925-550-7522",
-      "knowsAbout": [
-        "Software Engineering",
-        "Custom CRM Development",
-        "Web Development",
-        "Database Design",
-        "Python",
-        "JavaScript",
-        "TypeScript",
-        "Angular",
-        "Node.js"
-      ],
-      "alumniOf": [
-        {
-          "@type": "CollegeOrUniversity",
-          "name": "Berkeley City College"
-        }
-      ],
-      "worksFor": {
-        "@type": "Organization",
-        "name": "Freelance"
-      }
-    }
-    </script>
-</head>
+      <section id="about" class="section reveal">
+        <div class="container">
+          <h2>About</h2>
+          <p id="about-text">
+            I design and ship end-to-end web products focused on useful workflows, strong user experience, and maintainable architecture.
+          </p>
+        </div>
+      </section>
 
-<body>
-    <!-- Particle Background Canvas -->
-    <canvas id="particleCanvas" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; pointer-events: none;"></canvas>
-    
-    <!-- Cursor Trail -->
-    <div id="cursorTrail"></div>
-    
-    <!-- Retro Navigation with Dropdowns -->
-    <nav class="retro-nav">
-        <div class="nav-item">
-            <a href="#" class="nav-link">About</a>
-            <div class="dropdown">
-                <a href="#bio">Bio</a>
-                <a href="#contact-section">Contact</a>
-            </div>
+      <section id="projects" class="section reveal">
+        <div class="container">
+          <div class="section-head">
+            <h2>Featured Projects</h2>
+            <p>Top projects from my resume, with stable links and architecture context.</p>
+          </div>
+          <div id="project-grid" class="project-grid" aria-live="polite"></div>
         </div>
-        <div class="nav-item">
-            <a href="blog.html" class="nav-link">Blog</a>
-        </div>
-        <div class="nav-item">
-            <a href="game.html" class="nav-link">Game</a>
-        </div>
-        <div class="nav-item">
-            <a href="services.html" class="nav-link">Services</a>
-        </div>
-        <div class="nav-item">
-            <a href="#" class="nav-link">Links</a>
-            <div class="dropdown">
-                <a href="https://www.linkedin.com/in/matthew-robin/" target="_blank">LinkedIn</a>
-                <a href="https://github.com/mrobin88" target="_blank">GitHub</a>
-                <a href="#" onclick="Copy(); return false;">Email</a>
-            </div>
-        </div>
-    </nav>
+      </section>
 
-    <!-- Simple Welcome Text -->
-    <div class="blink-container">
-        <h1 class="blink-text" id="typingText"></h1>
-    </div>
-    
-    <!-- Web API Demo Section -->
-    <div class="api-demo-container">
-        <h3>Browser Info</h3>
-        <div class="api-info">
-            <p>Screen: <span id="screenInfo">-</span></p>
-            <p>Browser: <span id="browserInfo">-</span></p>
-            <p>Online: <span id="onlineStatus">-</span></p>
-            <p>Time: <span id="currentTime">-</span></p>
+      <section id="experience" class="section reveal">
+        <div class="container">
+          <h2>Experience Snapshot</h2>
+          <div id="experience-list" class="experience-list"></div>
         </div>
-    </div>
+      </section>
 
-    <!-- Main Bio Section -->
-    <div id='bio' class="bio-section">
-        <div id='hi' class="retro-text">Software engineer who builds things. Sometimes they work, sometimes they don't mostly always sometimes works sometimes doesn't.</div>
-        <br><br>
-        <div id="contact-section">
-            <a id='linkdin' href="https://www.linkedin.com/in/matthew-robin/" target="_blank" class="retro-link">Linkedin</a><br>
-            <a id='email' href="#" value="ratthewrobin@gmail.com" onclick="Copy(); return false;" class="retro-link">E-Mail</a>
+      <section id="contact" class="section reveal">
+        <div class="container contact-card">
+          <h2>Contact</h2>
+          <p>Available for frontend, backend, and full-stack web development opportunities.</p>
+          <div class="contact-links">
+            <a id="contact-email" href="#">Email</a>
+            <a id="contact-github" href="#" target="_blank" rel="noreferrer">GitHub</a>
+          </div>
         </div>
-        
-        <!-- Interactive Feature -->
-        <div class="interactive-section">
-            <p style="color: #0f0; margin-top: 20px; font-size: 0.9em;">Click anywhere on this box to change the color</p>
-            <canvas id="interactiveCanvas" width="200" height="100" style="width: 100%; max-width: 200px; height: 100px; border: 1px solid #0f0; cursor: pointer; margin-top: 10px;"></canvas>
-        </div>
-    </div>
+      </section>
+    </main>
 
-    <!-- Bitcoin Donation Section -->
-    <div class="donation-container">
-        <h3>Support</h3>
-        <div class="bitcoin-donation">
-            <p>Bitcoin: <span id="btc-address">bc1qxy2kgdygjrsqtzq2n0yrf2493p83kkfjhx0wlh</span></p>
-            <button onclick="copyBTC()" class="copy-btn">Copy Address</button>
-            <div class="qr-placeholder">QR Code</div>
-        </div>
-        
-        <!-- Google AdSense -->
-        <div class="adsense-container">
-            <ins class="adsbygoogle"
-                 style="display:block"
-                 data-ad-client="ca-pub-3022139486282881"
-                 data-ad-slot="1234567890"
-                 data-ad-format="auto"
-                 data-full-width-responsive="true"></ins>
-            <script>
-                 (adsbygoogle = window.adsbygoogle || []).push({});
-            </script>
-        </div>
-    </div>
+    <footer class="site-footer">
+      <div class="container">
+        <p>© <span id="year"></span> Matthew Robin</p>
+      </div>
+    </footer>
 
-    <!-- Pixelated Decorative Elements -->
-    <div class="pixel-art-container">
-        <div class="pixel-star pixel-star-1">★</div>
-        <div class="pixel-star pixel-star-2">★</div>
-        <div class="pixel-star pixel-star-3">★</div>
-    </div>
-
-    <!-- Spark Glow Effect at Bottom -->
-    <div class="fire-container">
-        <div class="fire">
-            <div class="spark spark-1"></div>
-            <div class="spark spark-2"></div>
-            <div class="spark spark-3"></div>
-            <div class="spark spark-4"></div>
-        </div>
-    </div>
-</body>
-
+    <script src="./script.js" defer></script>
+  </body>
 </html>
-
